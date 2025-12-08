@@ -21,7 +21,7 @@ services:
       - ./mysql-data:/var/lib/mysql
     #You can access the MySQL db if you want by opening the port
     ports:
-      - 3310:3306
+      - 127.0.0.1:3310:3306
     networks:
       - my-shared-network
 
@@ -58,10 +58,10 @@ services:
     #Opening the Minima ports.. You can change these if you are running multiple version on the same host
     ports:
       #Main Minima port - you can remove this if you don't have an external IP
-      - 9001:9001
+      - 127.0.0.1:9001:9001
       #MDS port..
-      - 9003:9003
-      - 9005:9005
+      - 127.0.0.1:9003:9003
+      - 127.0.0.1:9005:9005
     #The main Minima data folder where you can load mysql archive files
     volumes:
       - ./data:/home/minima/data
@@ -77,7 +77,7 @@ services:
     stop_grace_period: 60s
     restart: unless-stopped
     ports:
-      - 8080:8080
+      - 127.0.0.1:8080:8080
     environment:
       #The MAIN admin password - CHANGE this
       meg_adminpassword: "mypassword"
