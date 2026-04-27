@@ -23,7 +23,9 @@ services:
     ports:
       - 127.0.0.1:3310:3306
     networks:
-      - my-shared-network
+      my-shared-network:
+        aliases:
+          - meganode-mysql
 
   #Minima Node
   minima:
@@ -50,7 +52,7 @@ services:
       minima_megammr: "true"
       minima_megaprune: "true"
       #MySQL login profiles:
-      minima_mysqldb: "minimauser:iJwxexR4v3x52Ult5xJi8uAXnqNVhhZo7wpX@mysql:3306/minimadb"
+      minima_mysqldb: "minimauser:iJwxexR4v3x52Ult5xJi8uAXnqNVhhZo7wpX@meganode-mysql:3306/minimadb"
       minima_mysqldbdelay: "10000"
       minima_mysqlalltxpow: "true"
       minima_mysqldbcoins: "true"
