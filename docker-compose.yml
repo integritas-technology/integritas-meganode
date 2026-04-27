@@ -74,36 +74,36 @@ services:
       - my-shared-network
 
   #The MEG node.. waits for Minima to start
-  meg:
-    image: minimaglobal/meg:dev
-    stop_grace_period: 60s
-    restart: unless-stopped
-    ports:
-      - 127.0.0.1:8080:8080
-    environment:
-      #The MAIN admin password - CHANGE this
-      meg_adminpassword: "mypassword"
+  # meg:
+  #   image: minimaglobal/meg:dev
+  #   stop_grace_period: 60s
+  #   restart: unless-stopped
+  #   ports:
+  #     - 127.0.0.1:8080:8080
+  #   environment:
+  #     #The MAIN admin password - CHANGE this
+  #     meg_adminpassword: "mypassword"
 
-      #Do NOT change these..
-      meg_minimarpc: "http://minima:9005/"
-      meg_meghost: "http://meg:8080"
+  #     #Do NOT change these..
+  #     meg_minimarpc: "http://minima:9005/"
+  #     meg_meghost: "http://meg:8080"
 
-      #NEED this as minima waits for mysql
-      meg_startupdelay: "20000"
-    depends_on:
-      - minima
-    networks:
-      - my-shared-network
+  #     #NEED this as minima waits for mysql
+  #     meg_startupdelay: "20000"
+  #   depends_on:
+  #     - minima
+  #   networks:
+  #     - my-shared-network
 
-  #The CRON job that runs a backup of MEG and Mysql every 24 hours..
-  cron:
-    build:
-      context: .
-      dockerfile: CRON.Dockerfile
-    entrypoint: ["bash", "-c", "cron -f"]
-    restart: unless-stopped
-    depends_on:
-      - minima
+  # #The CRON job that runs a backup of MEG and Mysql every 24 hours..
+  # cron:
+  #   build:
+  #     context: .
+  #     dockerfile: CRON.Dockerfile
+  #   entrypoint: ["bash", "-c", "cron -f"]
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - minima
 
 networks:
   my-shared-network:
