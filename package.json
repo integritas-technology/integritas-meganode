@@ -1,0 +1,21 @@
+{
+  "name": "meganode",
+  "version": "1.0.0",
+  "description": "MySQL backed Minima node with MEG as a multi-container docker image",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devmus/meganode.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/devmus/meganode/issues"
+  },
+  "homepage": "https://github.com/devmus/meganode#readme"
+}
