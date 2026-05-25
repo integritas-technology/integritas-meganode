@@ -70,8 +70,12 @@ services:
       - ./backups:/home/minima/backups
     depends_on:
       - mysql
+    # networks:
+    #   - my-shared-network
     networks:
-      - my-shared-network
+      my-shared-network:
+        aliases:
+          - meganode-minima
 
   #The MEG node.. waits for Minima to start
   # meg:
